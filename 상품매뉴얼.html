@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLTO 2.0 사용자 매뉴얼</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, h4 {
+            color: #1a3e72;
+            margin-top: 1.5em;
+            margin-bottom: 0.5em;
+        }
+        h1 { font-size: 2.5rem; font-weight: 700; border-bottom: 2px solid #1a3e72; padding-bottom: 10px; }
+        h2 { font-size: 1.8rem; font-weight: 600; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+        h3 { font-size: 1.4rem; font-weight: 600; }
+        h4 { font-size: 1.2rem; font-weight: 600; }
+        p { margin-bottom: 1em; }
+        .note {
+            background-color: #f8f9fa;
+            border-left: 4px solid #4299e1;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .warning {
+            background-color: #fff8f8;
+            border-left: 4px solid #f56565;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .step {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .step:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            background-color: #4299e1;
+            border-radius: 50%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .toc {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .toc-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin-bottom: 8px;
+        }
+        .toc a {
+            color: #3182ce;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .section {
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+        .header-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-right: 20px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: baseline;
+        }
+        .faq-question:before {
+            content: "Q";
+            background-color: #2c5282;
+            color: white;
+            font-weight: bold;
+            padding: 2px 8px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+        .faq-answer {
+            padding-left: 30px;
+        }
+        .feature-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            color: #3182ce;
+            margin-bottom: 15px;
+        }
+        .highlight {
+            background-color: #FFFDE7;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container">
+        <header class="text-center mb-10 pt-8">
+            <div class="header-logo">
+                <h1 class="text-3xl font-bold text-center w-full">PLTO 2.0 사용자 매뉴얼</h1>
+            </div>
+            <p class="text-xl text-gray-600">쇼핑몰 통합 관리 솔루션</p>
+        </header>
+
+        <div class="toc">
+            <div class="toc-title">목차</div>
+            <ul>
+                <li><a href="#introduction">1. 소개</a></li>
+                <li><a href="#account-connection">2. 쇼핑몰 계정 연동</a>
+                    <ul>
+                        <li><a href="#account-setup">2.1 계정 설정</a></li>
+                        <li><a href="#user-management">2.2 사용자 관리</a></li>
+                    </ul>
+                </li>
+                <li><a href="#product-management">3. 상품 관리</a>
+                    <ul>
+                        <li><a href="#product-status">3.1 상품 상태 이해하기</a></li>
+                        <li><a href="#category-management">3.2 카테고리 관리</a></li>
+                        <li><a href="#template-management">3.3 템플릿 관리</a></li>
+                        <li><a href="#product-collection">3.4 쇼핑몰에서 상품 가져오기</a></li>
+                        <li><a href="#product-registration">3.5 새 상품 등록하기</a></li>
+                        <li><a href="#product-editing">3.6 상품 정보 수정하기</a></li>
+                        <li><a href="#product-transmission">3.7 상품 전송하기</a></li>
+                    </ul>
+                </li>
+                <li><a href="#order-management">4. 주문 관리</a>
+                    <ul>
+                        <li><a href="#order-collection">4.1 주문 수집</a></li>
+                        <li><a href="#order-confirmation">4.2 주문 확인 처리</a></li>
+                        <li><a href="#delivery-management">4.3 배송 관리</a></li>
+                    </ul>
+                </li>
+                <li><a href="#faq">5. 자주 묻는 질문 (FAQ)</a></li>
+            </ul>
+        </div>
+
+        <section id="introduction" class="section">
+            <h2>1. 소개</h2>
+            <p>PLTO 2.0은 여러 쇼핑몰의 계정을 통합 관리할 수 있는 솔루션입니다. 상품 등록, 수정, 주문 수집 및 처리 등 쇼핑몰 운영에 필요한 다양한 작업을 간편하게 처리할 수 있습니다.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-store"></i></div>
+                    <h3 class="text-lg font-semibold">다중 쇼핑몰 관리</h3>
+                    <p>여러 쇼핑몰 계정을 한 곳에서 효율적으로 관리하세요.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-box-open"></i></div>
+                    <h3 class="text-lg font-semibold">상품 통합 관리</h3>
+                    <p>상품 정보를 한 번만 입력하고 여러 쇼핑몰에 동시에 등록하세요.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h3 class="text-lg font-semibold">주문 일괄 처리</h3>
+                    <p>여러 쇼핑몰의 주문을 수집하고 배송 처리를 한번에 진행하세요.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="account-connection" class="section">
+            <h2>2. 쇼핑몰 계정 연동</h2>
+            <p>PLTO 2.0을 사용하기 위해서는 먼저 쇼핑몰 계정을 연동해야 합니다. 입점한 쇼핑몰의 계정을 솔루션에 연동하여 각종 작업 진행이 가능합니다.</p>
+
+            <div id="account-setup" class="mt-6">
+                <h3>2.1 계정 설정</h3>
+                <div class="step">
+                    <p><strong>경로:</strong> 설정 > 쇼핑몰 계정관리 > [쇼핑몰 등록] > 등록할 쇼핑몰 검색 및 리스트에서 선택</p>
+                </div>
+                <div class="note">
+                    <ul class="list-disc pl-5">
+                        <li>하나의 쇼핑몰에서 관리하는 계정이 여러개라면, 계정에 따라 각각 연동해 주세요.</li>
+                        <li>연동 가능 쇼핑몰 및 쇼핑몰 별 지원 기능은 [몰별 지원현황 다운로드]를 통해 확인하실 수 있습니다.</li>
+                        <li>ID/PW 외 API 등의 추가 정보 확인 경로는, [쇼핑몰 정보 입력] 화면에서 각 항목의 가이드 또는 [도움말](일부 쇼핑몰만 제공)을 통해 확인하실 수 있습니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="user-management" class="mt-8">
+                <h3>2.2 사용자 관리 (선택)</h3>
+                <p>PLTO 2.0 솔루션은 하나의 계정으로 동시 접속이 제한되어 있습니다. 담당자가 여러명이라면, [사용자 추가]를 통해 사용자 ID를 추가로 생성하여 로그인해 주세요.</p>
+                
+                <div class="step">
+                    <p><strong>경로:</strong> 설정 > 사용자 관리 > 좌측 상단의 [사용자 추가] 클릭</p>
+                </div>
+                <div class="note">
+                    <ul class="list-disc pl-5">
+                        <li>아이디(ID)는 이메일 형식으로만 추가가 가능합니다.</li>
+                        <li>기입한 이메일로 [인증메일 발송] 및 메일 주소에서 비밀번호 설정 후 로그인이 가능합니다.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="product-management" class="section">
+            <h2>3. 상품 관리</h2>
+            <p>PLTO 2.0에서는 상품을 등록하고 관리하는 다양한 기능을 제공합니다. 이 섹션에서는 상품 관리에 필요한 기본 개념과 단계별 작업 방법을 설명합니다.</p>
+
+            <div id="product-status" class="mt-6">
+                <h3>3.1 상품 상태 이해하기</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-blue-800">판매대기</h4>
+                        <p>솔루션에만 등록되어 있고 아직 쇼핑몰에 전송되지 않은 상태입니다. 카테고리와 템플릿을 적용하여 [상품전송] 시 쇼핑몰에 판매할 수 있습니다.</p>
+                        <p class="text-sm text-gray-600 mt-2">* 상품전송 작업을 했는데도 판매대기 상태로 남아 있다면, 좌측 [작업] 메뉴에서 쇼핑몰 작업을 확인해 보세요. 작업이 실패한 사유를 확인할 수 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-green-800">판매중</h4>
+                        <p>쇼핑몰에 상품이 판매되고 있는 상태입니다. 쇼핑몰과 솔루션에서의 상태가 다르다면, [상태동기화] 작업으로 '상품 상태'를 업데이트 해보세요.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h4 class="font-semibold text-yellow-800">수정대기</h4>
+                        <p>판매중인 상품이 솔루션에서 수정된 상태입니다. 수정된 정보는 [상품전송] 작업으로 쇼핑몰에 반영할 수 있습니다.</p>
+                        <p class="text-sm text-gray-600 mt-2">* 수정한 정보를 쇼핑몰에는 반영하고 싶지 않다면, 수정대기 상품에 마우스 우클릭 > 상태 수동변경 > 판매중으로 상태변경 하시면 솔루션에만 정보를 수정하고 전송하지 않을 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="category-management" class="mt-8">
+                <h3>3.2 카테고리 관리</h3>
+                <p>쇼핑몰에서 상품을 직접 등록해 보면 상품이 전시될 카테고리를 먼저 설정하게 됩니다. PLTO 2.0에서는 상품군별로 카테고리를 미리 설정해 둘 수 있습니다.</p>
+                
+                <div class="step">
+                    <p><strong>경로:</strong> 상품 > 카테고리 관리 메뉴 > 좌측 상단의 [카테고리 등록] > 개별 등록</p>
+                </div>
+
+                <h4 class="mt-4">카테고리 등록 절차</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>생성할 카테고리를 구분할 분류와 카테고리명을 입력:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>만들어 둔 분류가 없거나 새로운 분류를 생성해야 할 때는 새 분류를 생성합니다.</li>
+                            <li>이미 만들어 둔 분류에 카테고리를 담을 때는 해당 분류를 선택합니다.</li>
+                            <li>카테고리 명은 리스트에서 이름만 보고도 어떤 카테고리인지 알 수 있게 입력합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>쇼핑몰별로 상품이 전시될 카테고리를 설정:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>각 쇼핑몰에서 등록할 카테고리를 명칭으로 검색해 찾을 수 있습니다.</li>
+                            <li>카테고리에 들어있는 키워드를 입력하면 시스템이 검색 결과를 제공합니다.</li>
+                            <li>검색 결과를 확인하고 상품과 잘 맞는 카테고리를 선택합니다.</li>
+                            <li>카테고리 설정이 완료되면 [일괄저장] 버튼을 눌러 저장합니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="note mt-4">
+                    <p><strong>Tip:</strong> 카테고리를 생성하고 쇼핑몰 상품에 연동해두면, 추후 카테고리의 수정이 필요할 때 연동되어 있는 모든 상품에 자동으로 반영됩니다.</p>
+                </div>
+            </div>
+
+            <div id="template-management" class="mt-8">
+                <h3>3.3 템플릿 관리</h3>
+                <p>템플릿은 쇼핑몰에서 상품을 판매할 때 필요한 필수 또는 선택적 항목들을 설정하는 곳입니다. 예를 들어, 판매기간, 배송방법, 출고/출하지 정보와 같은 항목을 미리 설정해 둘 수 있습니다.</p>
+                
+                <div class="step">
+                    <p><strong>경로:</strong> 설정 > 템플릿 관리 > 좌측 상단의 [템플릿 추가] 버튼 클릭</p>
+                </div>
+
+                <h4 class="mt-4">템플릿 설정 절차</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>템플릿 기본 정보 입력:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>템플릿 명: 사용 목적을 알 수 있도록 명칭을 설정합니다.</li>
+                            <li>템플릿 설명: 템플릿의 용도나 특징을 설명하는 내용을 입력합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>쇼핑몰별 템플릿 설정:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>설정할 쇼핑몰을 선택하고 각 쇼핑몰에 필요한 정보를 입력합니다.</li>
+                            <li>배송 방법, 배송비 유형, 출고지/출하지, 반품/교환지 등의 정보를 설정합니다.</li>
+                            <li>판매 기간, A/S 안내, 품질 보증 기준 등의 정보도 필요에 따라 설정합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>템플릿 저장:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>모든 설정이 완료되면 [저장] 버튼을 클릭하여 템플릿을 저장합니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="note mt-4">
+                    <p><strong>참고:</strong> 템플릿은 상품 등록 시 필요한 정보를 미리 설정해두어 반복 작업을 줄이고 일관된 정보를 유지할 수 있게 해줍니다.</p>
+                </div>
+            </div>
+
+            <div id="product-collection" class="mt-8">
+                <h3>3.4 쇼핑몰에서 상품 가져오기</h3>
+                <p>쇼핑몰에서 판매중인 상품도 PLTO 2.0에 수집해 상품관리를 할 수 있습니다.</p>
+                
+                <div class="step">
+                    <p><strong>경로:</strong> 상품 → 쇼핑몰 상품 가져오기 → [1. 쇼핑몰 상품 가져오기] 버튼 클릭</p>
+                </div>
+
+                <h4 class="mt-4">상품 가져오기 절차</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>상품 가져오기 기준 설정:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>가져올 상품의 기준과 쇼핑몰을 선택합니다.</li>
+                            <li>기간을 설정하여 해당 기간 내에 등록된 상품을 가져올 수 있습니다(1~10년).</li>
+                            <li>특정 상품만 가져오고 싶다면 '특정 상품 가져오기'에 체크하고 상품코드를 입력합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>수집 작업 시작:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>[수집시작] 버튼을 클릭하여 상품 가져오기 작업을 시작합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>작업 진행 확인:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>좌측 메뉴의 [작업]메뉴로 이동하여 상품 가져오기 진행 상황을 확인할 수 있습니다.</li>
+                            <li>작업이 완료되면 [매칭] 버튼을 클릭하거나, '쇼핑몰 상품 가져오기' 메뉴로 돌아가 페이지를 새로고침하여 수집된 상품을 확인합니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="warning mt-4">
+                    <p><strong>참고:</strong> 상품 가져오기는 쇼핑몰에서 판매중인 상품만 수집합니다. 품절, 판매중지, 판매금지된 상품은 제외됩니다. 판매중인데 상품 수집이 안된 경우 옵션의 수가 3가지를 초과하거나 통합관리가 어려운 형태의 상품일 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div id="product-registration" class="mt-8">
+                <h3>3.5 새 상품 등록하기</h3>
+                <p>카테고리와 쇼핑몰 상품, 템플릿이 하나가 되면 [상품전송] 작업으로 상품 판매가 가능합니다.</p>
+                
+                <div class="step">
+                    <p><strong>경로:</strong> 상품 > 상품 리스트 > 좌측 상단의 [상품 등록] 버튼 클릭</p>
+                </div>
+
+                <h4 class="mt-4">새 상품 등록 절차</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>마스터 상품 정보 입력:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>상품명, 판매가, 이미지와 같은 상품의 기본 정보를 입력합니다.</li>
+                            <li>옵션이 있는 경우 옵션 정보를 설정합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>카테고리 설정:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>상품에 맞는 카테고리를 선택하여 설정합니다.</li>
+                            <li>카테고리가 미리 생성되어 있어야 합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>템플릿 적용:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>상품에 적용할 템플릿을 선택합니다.</li>
+                            <li>템플릿이 미리 생성되어 있어야 합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>상품 정보 저장:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>모든 정보를 입력한 후 [저장] 버튼을 클릭하여 상품을 등록합니다.</li>
+                            <li>저장된 상품은 '판매대기' 상태로 리스트에 추가됩니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="note mt-4">
+                    <p><strong>Tip:</strong> 상품 등록 시 필수 항목(*)은 반드시 입력해야 합니다. 상세설명은 HTML 소스를 직접 입력하거나 에디터를 이용하여 작성할 수 있습니다.</p>
+                </div>
+            </div>
+
+            <div id="product-editing" class="mt-8">
+                <h3>3.6 상품 정보 수정하기</h3>
+                <p>등록된 상품의 정보를 수정하여 쇼핑몰에 반영할 수 있습니다.</p>
+
+                <h4 class="mt-4">주요 수정 항목</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h5 class="font-semibold text-blue-700">상품명 수정</h5>
+                        <p>마스터상품 또는 쇼핑몰 상품의 상세 페이지에서 기본정보 탭을 통해 상품명을 수정할 수 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h5 class="font-semibold text-blue-700">판매가 수정</h5>
+                        <p>상품 리스트에서 직접 수정하거나, 여러 상품을 선택하여 일괄 수정할 수 있습니다. 할인/인상율을 적용할 수도 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h5 class="font-semibold text-blue-700">대표이미지 수정</h5>
+                        <p>상품의 상세 페이지에서 이미지 탭을 통해 대표이미지를 변경할 수 있습니다.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h5 class="font-semibold text-blue-700">상세설명 수정</h5>
+                        <p>상품의 상세 페이지에서 상세설명 탭을 통해 HTML 소스를 수정할 수 있습니다.</p>
+                    </div>
+                </div>
+
+                <h4 class="mt-6">상세설명 수정 방법</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>마스터상품의 상세설명 수정 (여러 쇼핑몰에 일괄 적용):</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>마스터상품의 [상세] 버튼을 클릭하여 상세 페이지로 이동합니다.</li>
+                            <li>상세설명 탭에서 HTML 소스를 입력합니다.</li>
+                            <li>[수정] 버튼을 눌러 저장합니다.</li>
+                            <li>'연동된 쇼핑몰 상품 정보도 공통 수정' 옵션을 체크하고 상세설명 항목을 선택하여 여러 쇼핑몰에 일괄 적용할 수 있습니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>쇼핑몰별 상세설명 수정:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>수정하려는 쇼핑몰 상품의 [상세] 버튼을 클릭하여 상세 페이지로 이동합니다.</li>
+                            <li>상세설명 탭에서 HTML 소스를 입력합니다.</li>
+                            <li>[수정] 버튼을 눌러 저장합니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <div id="product-transmission" class="mt-8">
+                <h3>3.7 상품 전송하기</h3>
+                <p>[상품전송] 기능은 새 상품을 등록해 쇼핑몰에 판매하거나, 판매중인 상품의 정보가 변경되었을 때 사용합니다.</p>
+
+                <h4 class="mt-4">새 상품 등록 시 상품 전송</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>상품은 리스트에서 [판매대기] 상태에 있어야 합니다.</li>
+                    <li>카테고리와 템플릿이 모두 설정되어 있는지 확인합니다.</li>
+                    <li>등록할 상품을 선택합니다.</li>
+                    <li>상품 리스트 상단의 [상품전송] 버튼을 클릭합니다.</li>
+                    <li>상품 전송 작업 시 안내 사항을 확인하고 [전송하기] 버튼을 클릭합니다.</li>
+                </ol>
+
+                <h4 class="mt-4">상품 정보 수정 시 상품 전송</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>상품은 리스트에서 [수정대기] 상태에 있어야 합니다.</li>
+                    <li>템플릿이 설정되어 있는지 확인합니다.</li>
+                    <li>수정된 정보를 전송할 상품을 선택합니다.</li>
+                    <li>상품 리스트 상단의 [상품전송] 버튼을 클릭합니다.</li>
+                    <li>상품 전송 작업 시 안내 사항을 확인하고 [전송하기] 버튼을 클릭합니다.</li>
+                </ol>
+
+                <h4 class="mt-4">상품 일부 정보만 수정 시 부분 수정</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>상품은 리스트에서 [수정대기] 상태에 있어야 합니다.</li>
+                    <li>템플릿이 설정되어 있는지 확인합니다.</li>
+                    <li>수정된 정보를 전송할 상품을 선택합니다.</li>
+                    <li>상품 리스트 상단의 [부분수정] 버튼을 클릭합니다.</li>
+                    <li>부분 수정 작업 시 안내 사항을 확인하고 수정하고 싶은 항목을 선택합니다.</li>
+                    <li>[전송하기] 버튼을 클릭하여 쇼핑몰에 정보를 전송합니다.</li>
+                </ol>
+
+                <div class="note mt-4">
+                    <p><strong>참고:</strong> 부분수정이 가능한 항목은 제한적입니다. 그 외 항목은 [상품전송] 버튼으로 전송해야 합니다.</p>
+                </div>
+
+                <h4 class="mt-4">상품 전송 결과 확인</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>좌측 메뉴의 [작업] 메뉴로 이동합니다.</li>
+                    <li>전송을 하면 PLTO 2.0이 쇼핑몰에 상품을 대신 등록합니다. 이 작업은 작업 메뉴에서 진행중인 현황과 작업 결과를 확인할 수 있습니다.</li>
+                    <li>작업이 실패하면 도구 항목의 [상세] 버튼을 클릭하여 실패 사유를 확인할 수 있습니다.</li>
+                    <li>실패 사유를 확인하고 상품정보를 수정해서 다시 [상품전송] 또는 [부분수정] 버튼을 클릭합니다.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="order-management" class="section">
+            <h2>4. 주문 관리</h2>
+            <p>PLTO 2.0 주문 관리는 쇼핑몰 주문 수집 > 택배사 & 운송장 정보 입력 > 쇼핑몰로 운송장 전송의 과정으로 진행됩니다. 발송이 필요한 미처리 상태의 신규주문에 대해서 수집 및 관리가 가능합니다.</p>
+
+            <div id="order-collection" class="mt-6">
+                <h3>4.1 주문 수집</h3>
+                <div class="step">
+                    <p><strong>경로:</strong> 주문 > 결제완료/신규주문/배송관리/전체주문조회 > 좌측 상단의 [주문수집] > '주문 자동 수집' 클릭</p>
+                </div>
+
+                <div class="note">
+                    <ul class="list-disc pl-5">
+                        <li>쇼핑몰 판매자센터상에서 배송정보(택배사, 운송장 번호)가 입력되어있지 않은 신규주문(발송 전)을 수집합니다.</li>
+                        <li>주문수집 전, 취소된 주문은 수집되지 않습니다.</li>
+                        <li>수집된 주문의 발주확인 여부에 따라, <span class="highlight">결제완료</span> 또는 <span class="highlight">신규주문</span> 메뉴에 주문이 저장됩니다.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg mt-4">
+                    <h4 class="font-semibold text-blue-800">결제완료 주문과 신규주문 차이!</h4>
+                    <ul class="list-disc pl-5 mt-2">
+                        <li><strong>결제완료:</strong> 주문확인(발주확인) 처리가 되지 않은 상태의 주문으로, 결제완료 메뉴로 수집됩니다.
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>쇼핑몰 정책으로 인해 결제완료 상태는 주문수집을 지원하지 않는 경우라면?</li>
+                                <li>① 해당 쇼핑몰에서 별도로 발주확인 처리 후 주문수집 작업 진행</li>
+                                <li>② 솔루션에서 주문수집 작업 시 자동 주문확인 체크하여 진행</li>
+                            </ul>
+                        </li>
+                        <li><strong>신규주문:</strong> 판매자의 주문확인(발주확인)이 완료된 주문으로 신규주문 메뉴로 바로 수집됩니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="order-confirmation" class="mt-8">
+                <h3>4.2 주문 확인 처리</h3>
+                <p>결제완료 메뉴에서 [주문확인] 버튼으로 주문확인(발주확인) 처리가 가능합니다.</p>
+                
+                <div class="step">
+                    <p><strong>방법:</strong> 결제완료 메뉴에서 [주문확인] 버튼 클릭</p>
+                </div>
+
+                <div class="note">
+                    <ul class="list-disc pl-5">
+                        <li>특정 주문만 발주확인 처리를 원하는 경우, 리스트에서 해당 주문 선택 후 [주문확인] 버튼 클릭</li>
+                        <li>주문확인 처리 후, 해당 주문은 신규주문 메뉴로 이동됩니다.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="delivery-management" class="mt-8">
+                <h3>4.3 배송 관리</h3>
+                <p>주문 확인 후 택배사 및 운송장 번호를 입력하고 쇼핑몰로 전송하는 과정입니다.</p>
+
+                <h4 class="mt-4">택배사 및 운송장 번호 입력</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>신규주문 메뉴에서 처리할 주문 선택:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>신규주문 메뉴에서 운송장을 입력할 주문을 선택합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>운송장 정보 입력:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>택배사 선택 및 운송장 번호를 입력합니다.</li>
+                            <li>개별 입력 또는 일괄 입력이 가능합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>운송장 저장:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>[저장] 버튼을 클릭하여 운송장 정보를 저장합니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4 class="mt-4">쇼핑몰로 운송장 전송</h4>
+                <ol class="list-decimal pl-6 space-y-4">
+                    <li>
+                        <strong>운송장이 입력된 주문 선택:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>운송장이 입력된 주문을 선택합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>운송장 전송:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>[운송장 전송] 버튼을 클릭합니다.</li>
+                            <li>전송 정보를 확인하고 [전송하기] 버튼을 클릭합니다.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>전송 결과 확인:</strong>
+                        <ul class="list-disc pl-5 mt-2">
+                            <li>좌측 메뉴의 [작업] 메뉴에서 운송장 전송 작업의 진행 상황과 결과를 확인할 수 있습니다.</li>
+                            <li>전송에 성공한 주문은 배송관리 메뉴로 이동합니다.</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="note mt-4">
+                    <p><strong>참고:</strong> 수집된 주문에 대한 취소/교환/반품 등의 클레임 발생은 주문동기화 작업을 통해 확인이 가능합니다. (솔루션에 수집되어있는 주문에 한해서만 클레임 발생 여부 확인 가능)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section">
+            <h2>5. 자주 묻는 질문 (FAQ)</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">쇼핑몰에서 수정한 정보를 PLTO 2.0으로 가져올 수 있나요?</div>
+                <div class="faq-answer">
+                    <p>PLTO 2.0에 등록된 상품을 쇼핑몰 판매자센터에서 수정하실 경우 수정사항이 PLTO 2.0에 자동으로 반영되지 않습니다. 다만, 상품동기화를 통해 특정 항목에 대한 정보를 가져올 수 있습니다.</p>
+                    <p class="mt-2"><strong>동기화 가능한 항목:</strong></p>
+                    <ul class="list-disc pl-5 mt-1">
+                        <li>상품 상태</li>
+                        <li>판매 수량</li>
+                        <li>상품 판매 종료일</li>
+                        <li>판매 가격</li>
+                    </ul>
+                    <p class="mt-2">동기화가 가능한 항목이 제한적이므로 상품을 수정하실 때에는 <strong>PLTO 2.0을 통한 상품 수정</strong>을 권장드립니다.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">상품전송 시 카테고리가 없다고 합니다.</div>
+                <div class="faq-answer">
+                    <p>상품 전송 시 카테고리가 없다는 오류가 발생하는 경우 다음 사항을 확인해보세요:</p>
+                    <ol class="list-decimal pl-5 mt-2">
+                        <li>카테고리가 제대로 생성되어 있는지 확인합니다.</li>
+                        <li>해당 상품에 카테고리가 정상적으로 연결되어 있는지 확인합니다.</li>
+                        <li>카테고리 설정 시 쇼핑몰별 카테고리가 모두 설정되어 있는지 확인합니다.</li>
+                        <li>전송하려는 쇼핑몰의 카테고리 정보가 유효한지 확인합니다.</li>
+                    </ol>
+                    <p class="mt-2">문제가 지속되면 카테고리를 재설정하거나 새로 생성하여 적용해보세요.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">쇼핑몰에 전송했는데 계속 판매대기에 있어요.</div>
+                <div class="faq-answer">
+                    <p>상품을 쇼핑몰에 전송했으나 계속 판매대기 상태로 남아있는 경우:</p>
+                    <ol class="list-decimal pl-5 mt-2">
+                        <li>좌측 [작업] 메뉴에서 쇼핑몰 작업을 확인하세요.</li>
+                        <li>작업 상세 내역에서 실패 사유를 확인할 수 있습니다.</li>
+                        <li>실패 사유에 따라 상품 정보를 수정한 후 다시 [상품전송]을 시도하세요.</li>
+                    </ol>
+                    <p class="mt-2">주요 실패 원인:</p>
+                    <ul class="list-disc pl-5 mt-1">
+                        <li>필수 항목이 누락되었을 경우</li>
+                        <li>카테고리나 템플릿 설정에 문제가 있을 경우</li>
+                        <li>쇼핑몰의 정책에 맞지 않는 상품 정보가 있을 경우</li>
+                        <li>쇼핑몰 계정 정보가 변경되었을 경우</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">PLTO 2.0에서 여러 쇼핑몰에 동일한 상품을 등록할 수 있나요?</div>
+                <div class="faq-answer">
+                    <p>네, PLTO 2.0의 핵심 기능 중 하나가 바로 이것입니다. 마스터 상품을 한 번 등록하고 여러 쇼핑몰에 동시에 전송할 수 있습니다.</p>
+                    <ol class="list-decimal pl-5 mt-2">
+                        <li>먼저 마스터 상품을 등록합니다.</li>
+                        <li>카테고리 설정 시 여러 쇼핑몰의 카테고리를 모두 설정합니다.</li>
+                        <li>템플릿 설정 시 여러 쇼핑몰에 대한 정보를 모두 설정합니다.</li>
+                        <li>상품 전송 시 전송할 쇼핑몰을 선택하여 전송합니다.</li>
+                    </ol>
+                    <p class="mt-2">이렇게 하면 하나의 상품 정보로 여러 쇼핑몰에 동일한 상품을 관리할 수 있습니다.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">주문 수집 시 특정 기간의 주문만 수집할 수 있나요?</div>
+                <div class="faq-answer">
+                    <p>네, 주문 수집 시 특정 기간을 설정하여 해당 기간의 주문만 수집할 수 있습니다.</p>
+                    <ol class="list-decimal pl-5 mt-2">
+                        <li>주문 > 결제완료/신규주문/배송관리/전체주문조회 메뉴로 이동합니다.</li>
+                        <li>[주문수집] 버튼을 클릭합니다.</li>
+                        <li>'기간 설정' 옵션에서 원하는 기간을 설정합니다.</li>
+                        <li>[주문 자동 수집] 버튼을 클릭하여 설정한 기간의 주문을 수집합니다.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-16 py-8 border-t text-center text-gray-600">
+            <p>© 2023 PLAYAUTO. 모든 권리 보유.</p>
+            <p class="mt-2">본 매뉴얼은 내부용으로 제작되었습니다.</p>
+            <p class="mt-2">최종 업데이트: 2023년 12월</p>
+        </footer>
+    </div>
+</body>
+</html>
